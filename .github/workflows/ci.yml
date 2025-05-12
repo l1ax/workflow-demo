@@ -15,11 +15,10 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      - name: cd backend
-        run: cd ./backend
-
       - name: build images and push to Docker Hub
         uses: docker/build-push-action@v5
         with:
           push: true
           tags: l1ax/workflow-demo:latest
+          file: backend/dockerfile
+          context: backend
