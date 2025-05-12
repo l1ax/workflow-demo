@@ -1,0 +1,22 @@
+name: 构建镜像推送至Docker hub
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+    
+      - name: login Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKER_HUB_USERNAME }}
+          password: ${{ vars.DOCKER_HUB_PASSWORD }}
+
+      - name: build images and push to Docker Hub
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: ${{ vars.DOCKER_HUB_USERNAME }}/backend:latest

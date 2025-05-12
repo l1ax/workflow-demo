@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const App= () => {
+const App = () => {
     const [list, setList] = useState([]);
     useEffect(() => {
         fetch('/api/list')
