@@ -30,4 +30,4 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: true
-          tags: l1ax/workflow-demo:latest
+          tags: l1ax/workflow-demo-frontend:latest
